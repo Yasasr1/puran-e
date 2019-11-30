@@ -18,8 +18,10 @@ const Header = (props) => {
                     <Nav.Link href="#">Features</Nav.Link>
                     <Nav.Link href="#">Pricing</Nav.Link>
                 </Nav>
-                <Button variant="warning">Login</Button>
+                <Login/>
+
                 <Register/>
+                
             </Navbar>
         </div>
     );
@@ -81,6 +83,49 @@ const Header = (props) => {
             </ButtonToolbar>
         );
     }
+
+    function LoginForm(props) {
+        return (
+            <Modal {...props} aria-labelledby="contained-modal-title-vcenter" centered>
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">Login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        
+                            <Form.Row>
+                                <Form.Group>
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control type="email"/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group>
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control type="password"/>
+                                </Form.Group>
+                            </Form.Row>
+                            
+                        </Form>
+                    
+                </Modal.Body>
+                <Modal.Footer>
+                <Button onClick={props.onHide}>Login</Button>
+                </Modal.Footer>
+            </Modal>
+        );
+    }
+      
+    function Login() {const [modalShow, setModalShow] = React.useState(false);
+        return (
+            <ButtonToolbar>
+                <Button variant="warning" onClick={() => setModalShow(true)}>Login</Button>
+                <LoginForm show={modalShow} onHide={() => setModalShow(false)}/>
+            </ButtonToolbar>
+        );
+    }
+
+
 };
 
 export default Header;
