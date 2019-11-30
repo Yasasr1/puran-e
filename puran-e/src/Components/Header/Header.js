@@ -48,7 +48,7 @@ const Header = (props) => {
                             <Form.Row>
                                 <Form.Group>
                                     <Form.Label>Email</Form.Label>
-                                    <Form.Control/>
+                                    <Form.Control type="email"/>
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
@@ -60,7 +60,7 @@ const Header = (props) => {
                             <Form.Row>
                                 <Form.Group>
                                     <Form.Label>Password Again</Form.Label>
-                                    <Form.Control/>
+                                    <Form.Control type="password"/>
                                 </Form.Group>
                             </Form.Row>
                         </Form>
