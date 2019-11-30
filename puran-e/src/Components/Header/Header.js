@@ -28,7 +28,7 @@ const Header = (props) => {
         return (
             <Modal {...props} aria-labelledby="contained-modal-title-vcenter" centered>
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">RegisterForm</Modal.Title>
+                    <Modal.Title id="contained-modal-title-vcenter">Register</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -67,7 +67,7 @@ const Header = (props) => {
                     
                 </Modal.Body>
                 <Modal.Footer>
-                <Button onClick={props.onHide}>Add</Button>
+                <Button onClick={props.onHide}>Sign up</Button>
                 </Modal.Footer>
             </Modal>
         );
@@ -76,7 +76,7 @@ const Header = (props) => {
     function Register() {const [modalShow, setModalShow] = React.useState(false);
         return (
             <ButtonToolbar>
-                <Button variant="warning" onClick={() => setModalShow(true)}>Add service</Button>
+                <Button variant="warning" onClick={() => setModalShow(true)}>Sign Up</Button>
                 <RegisterForm show={modalShow} onHide={() => setModalShow(false)}/>
             </ButtonToolbar>
         );
