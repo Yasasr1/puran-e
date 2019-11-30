@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
-
+import {Modal, ButtonToolbar, Form} from 'react-bootstrap';
 
 const Header = (props) => {
     return (
@@ -19,9 +19,68 @@ const Header = (props) => {
                     <Nav.Link href="#">Pricing</Nav.Link>
                 </Nav>
                 <Button variant="warning">Login</Button>
+                <Register/>
             </Navbar>
         </div>
     );
+
+    function RegisterForm(props) {
+        return (
+            <Modal {...props} aria-labelledby="contained-modal-title-vcenter" centered>
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">RegisterForm</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        
+                            <Form.Row>
+                                <Form.Group>
+                                    <Form.Label>First Name</Form.Label>
+                                    <Form.Control/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group>
+                                    <Form.Label>Last Name</Form.Label>
+                                    <Form.Control/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group>
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group>
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control type="password"/>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group>
+                                    <Form.Label>Password Again</Form.Label>
+                                    <Form.Control/>
+                                </Form.Group>
+                            </Form.Row>
+                        </Form>
+                    
+                </Modal.Body>
+                <Modal.Footer>
+                <Button onClick={props.onHide}>Add</Button>
+                </Modal.Footer>
+            </Modal>
+        );
+    }
+      
+    function Register() {const [modalShow, setModalShow] = React.useState(false);
+        return (
+            <ButtonToolbar>
+                <Button variant="warning" onClick={() => setModalShow(true)}>Add service</Button>
+                <RegisterForm show={modalShow} onHide={() => setModalShow(false)}/>
+            </ButtonToolbar>
+        );
+    }
 };
 
 export default Header;
